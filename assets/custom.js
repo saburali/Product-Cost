@@ -38,3 +38,19 @@ function updateValue(value, type) {
     subtotal.innerHTML = parseFloat(basic) + parseFloat(memory) + parseFloat(storage) + parseFloat(delivery);
     document.getElementById("total").innerHTML = subtotal.innerHTML;
 }
+
+// 20% Discount Function (Promo code)
+function promoCode() {
+    const promo = document.getElementById("promo-code").value;
+    if (promo === "stevekaku") {
+        const basic_subtotal = document.getElementById("basic-subtotal").innerHTML;
+        const final_subtotal = parseFloat(basic_subtotal) - (parseFloat(basic_subtotal) * 0.20);
+        document.getElementById("total").innerHTML = final_subtotal;
+        document.getElementById("promo-code").value = "";
+    } else {
+        alert("Promo Code in not valid");
+    }
+}
+document.getElementById("promo-code-click").addEventListener("click", function () {
+    promoCode();
+});
