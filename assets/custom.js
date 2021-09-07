@@ -23,3 +23,18 @@ document.getElementById("delivery").addEventListener("click", function () {
 document.getElementById("fastDelivery").addEventListener("click", function () {
     updateValue(20, "delivery");
 });
+
+
+// Total Price Calculation
+function updateValue(value, type) {
+    document.getElementById(type + "-price").innerHTML = value;
+
+    const basic = document.getElementById("basic-price").innerHTML;
+    const memory = document.getElementById("memory-price").innerHTML;
+    const storage = document.getElementById("storage-price").innerHTML;
+    const delivery = document.getElementById("delivery-price").innerHTML;
+
+    const subtotal = document.getElementById("basic-subtotal");
+    subtotal.innerHTML = parseFloat(basic) + parseFloat(memory) + parseFloat(storage) + parseFloat(delivery);
+    document.getElementById("total").innerHTML = subtotal.innerHTML;
+}
